@@ -68,19 +68,20 @@ Since we’re adding a new module, we’ll need to initialize the terraform conf
 
 <img width="946" height="257" alt="image" src="https://github.com/user-attachments/assets/d272386c-68e7-46b6-a39d-49fc3aa5a64d" />
 
-Verifying configuration
+<h3>Verifying configuration</h3>
+
 We can leverage the AWS CLI to verify that the SSM service setting has been enabled in the region using the following command, but make sure you grab your own setting ID and not my example one. You can search in your terminal for “:servicesetting/ssm/managed-instance/default-ec2-instance-management-role” and it will display what you need to copy/paste.
 
     aws ssm get-service-setting --setting-id arn:aws:ssm:us-east-1:014498641646:servicesetting/ssm/managed-instance/default-ec2-instance-management-role
 
-<img width="766" height="192" alt="image" src="https://github.com/user-attachments/assets/2218ea7c-4361-4467-888d-32a0dc3ed1fe" />
-
 Use the ARN of the SSM service setting resource (can be seen in the output of the terraform apply command) to query the service setting. We know this is enabled successfully if the IAM Role we created is set as the value for SettingValue.
 
-Conclusion & Terraform Destroy
-We’re good to go! But now we need to create a VPC Endpoint for SSM. Go ahead destroy your terraform resources:
+<img width="766" height="192" alt="image" src="https://github.com/user-attachments/assets/2218ea7c-4361-4467-888d-32a0dc3ed1fe" />
+
+Terraform Destroy
 
 <img width="707" height="68" alt="image" src="https://github.com/user-attachments/assets/6929c664-7763-447a-b8e5-d4e69baeda25" />
+
 
 
 

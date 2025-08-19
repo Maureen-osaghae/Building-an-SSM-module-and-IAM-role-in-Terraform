@@ -33,7 +33,7 @@ This section below creates an IAM Role for SSM. The IAM Role gets assumed by the
 
 Modules/ssm/main.tf
 
-<img width="626" height="445" alt="image" src="https://github.com/user-attachments/assets/eaacf924-5e3a-47a2-9b1b-b62573b77b1e" />
+<img width="522" height="265" alt="image" src="https://github.com/user-attachments/assets/d7e77f85-37c3-45da-961c-6b9b7bdd452d" />
 
 modules/ssm/main.tf
 
@@ -41,11 +41,11 @@ modules/ssm/main.tf
 
 <h2>SSM Module Outputs File</h2>
 
-he outputs.tf file defines an output of the IAM Role’s name and arn created in this module. This allows us to easily reference and utilize this resource elsewhere if needed.
+The outputs.tf file defines an output of the IAM Role’s name and arn created in this module. This allows us to easily reference and utilize this resource elsewhere if needed.
 
 modules/ssm/outputs.tf
 
-<img width="580" height="113" alt="image" src="https://github.com/user-attachments/assets/42464452-e708-4ca2-a298-06a216c877c1" />
+<img width="479" height="146" alt="image" src="https://github.com/user-attachments/assets/0ebd4c6e-f3fe-46ef-9a9e-8c9ae009f5cd" />
 
 That’s it for the SSM module! Is time to test the deployment.
 

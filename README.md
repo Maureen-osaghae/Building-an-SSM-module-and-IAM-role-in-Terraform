@@ -54,9 +54,11 @@ That’s it for the SSM module! Is time to test the deployment.
 <h3>Deploy the SSM Module</h3>
 Since we’re adding a new module, we’ll need to initialize the terraform configuration again. Notice how the ssm module is now being initialized in the output below:
 
+
 <img width="637" height="143" alt="image" src="https://github.com/user-attachments/assets/b70b7347-1c66-4e66-8f26-64c190f4cf9d" />
 
-run terraform init command
+   
+    Run terraform init command
 
 <img width="542" height="301" alt="image" src="https://github.com/user-attachments/assets/17a36015-9c5e-4531-9f11-860ea44a2cf5" />
  

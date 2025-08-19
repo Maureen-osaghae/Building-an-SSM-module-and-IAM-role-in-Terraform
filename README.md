@@ -45,7 +45,7 @@ he outputs.tf file defines an output of the IAM Role’s name and arn created in
 
 modules/ssm/outputs.tf
 
-<img width="624" height="196" alt="image" src="https://github.com/user-attachments/assets/c8d3a75d-3c3f-45b9-881f-2b4fe40093e6" />
+<img width="580" height="113" alt="image" src="https://github.com/user-attachments/assets/42464452-e708-4ca2-a298-06a216c877c1" />
 
 That’s it for the SSM module! Is time to test the deployment.
 

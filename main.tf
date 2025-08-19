@@ -1,36 +1,25 @@
-# Get current region
+#Get region#
 data "aws_region" "current" {}
 
-# Get caller identity
-data "aws_caller_identity" "current" {}
+##Create a Network Module##
+module "lab_vpc"{
+  source = "./Modules/vpc"
 
-# Create IAM role for SSM
-resource "aws_iam_role" "default_host_management" {
-  name        = "AWSSystemsManagerDefaultEC2InstanceManagementRole"
-  description = "AWS Systems Manager Default EC2 Instance Management Role"
+  lab_vpc = {
+    cidr_block            = "10.0.0.0/16"
+    enable_dns_host_names = true
+    enable_dns_support    = true
+    availability_zones    = ["us-east-1a", "us-east-1b"]
 
-  assume_role_policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [
-      {
-        Action = "sts:AssumeRole",
-        Effect = "Allow",
-        Principal = {
-          Service = "ec2.amazonaws.com"
-        }
-      }
-    ]
-  })
+    tags = {
+      name = "tf_main"
+    }
+
+  }
 }
 
-# Attach IAM policy to the role
-resource "aws_iam_role_policy_attachment" "default_host_management" {
-  role       = aws_iam_role.default_host_management.name
-  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedEC2InstanceDefaultPolicy"
-}
-
-# Enable SSM in the region
-resource "aws_ssm_service_setting" "default_host_management" {
-  setting_id    = "/ssm/managed-instance/default-ec2-instance-management-role"
-  setting_value = aws_iam_role.default_host_management.name
+#Enable SSM Module#
+module "SSM" {
+  source = "./Modules/ssm"
+  
 }
